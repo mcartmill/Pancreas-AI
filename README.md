@@ -5,7 +5,7 @@ Open Source insulin/glucose/food tracking app that will make suggestions on insu
 1/21/2026 - Michael Cartmill
 
 Initial Features:
--Glucose tracking - 2/19/2026 - Changed to use Dexcom OAuth - works but not pulling recent data - check G6 vs G7 API?
+-Glucose tracking - 2/21/2026 - Changed to use Dexcom OAuth and Share - OAUth works but not pulling using Share - waiting on getting Dexcom Dev to use real data approval
 -Food tracking
 -Insulin tracking
 -Insulin amount suggestions
