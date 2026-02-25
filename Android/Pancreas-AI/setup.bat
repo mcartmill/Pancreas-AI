@@ -383,6 +383,7 @@ for %%F in (
     GlucoseRepository.kt GlucoseViewModel.kt MainActivity.kt
     SettingsActivity.kt OAuthWebViewActivity.kt BootReceiver.kt
     InsulinEntry.kt
+    FoodEntry.kt
 ) do (
     if exist "%BAT_DIR%%%F" (
         copy /Y "%BAT_DIR%%%F" "%PKG%\%%F" >nul
