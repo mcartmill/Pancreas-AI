@@ -130,6 +130,7 @@ class GlucoseViewModel(app: Application) : AndroidViewModel(app) {
         try {
             val hours    = _chartHours.value ?: CredentialsManager.getChartHours(ctx)
             val readings = repository.fetchReadings(hours)
+            GlucoseLog.append(ctx, readings)   // persist for report export
             _uiState.postValue(UiState.Success(readings))
             _lastUpdated.postValue(System.currentTimeMillis())
         } catch (e: Exception) {

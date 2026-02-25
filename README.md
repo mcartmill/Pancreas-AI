@@ -11,11 +11,11 @@ Initial Features:
 -Insulin tracking - 2/21/2026 - added insulin tracking input - shows on time chart
 -Insulin amount suggestions
 -Insulin timing suggestions
--Charts
+-Charts - 2/25/2026 - creates export (multiple time range selections) with charts (full color)
 
 
 
 Future Features:
--A1C predictions
+-A1C predictions - 2/25/2026 - this is now estimated with the report export.
 -AI integrated for suggestions and pattern recognition
 

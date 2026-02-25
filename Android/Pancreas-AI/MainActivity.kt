@@ -90,6 +90,7 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
         R.id.action_settings -> { startActivity(Intent(this, SettingsActivity::class.java)); true }
         R.id.action_refresh  -> { viewModel.refresh(); true }
+        R.id.action_export   -> { showExportDialog(); true }
         else                 -> super.onOptionsItemSelected(item)
     }
 
@@ -625,5 +626,27 @@ class MainActivity : AppCompatActivity() {
         this.text = text; textSize = 12f
         setTextColor(Color.parseColor("#6A8499"))
         setPadding(0, 16, 0, 4)
+    }
+
+    // ── Export Report Dialog ───────────────────────────────────────────────────
+
+    private fun showExportDialog() {
+        val periods = ReportPeriod.values()
+        val labels  = periods.map { it.label }.toTypedArray()
+        var selected = 0  // default: Last 24 Hours
+
+        AlertDialog.Builder(this)
+            .setTitle("Export Report")
+            .setSingleChoiceItems(labels, selected) { _, which -> selected = which }
+            .setPositiveButton("Export") { _, _ ->
+                try {
+                    val intent = ReportExporter.export(this, periods[selected])
+                    startActivity(Intent.createChooser(intent, "Share Report via..."))
+                } catch (e: Exception) {
+                    Toast.makeText(this, "Export failed: ${e.message}", Toast.LENGTH_LONG).show()
+                }
+            }
+            .setNegativeButton("Cancel", null)
+            .show()
     }
 }
