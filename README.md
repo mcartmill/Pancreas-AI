@@ -20,3 +20,7 @@ Initial Features:
 
 -adjustable notifications and thresholds - 2/27/2026
 
+-added disclaimer page - 3/13/2026
+
+
+
